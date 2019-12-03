@@ -1,0 +1,10 @@
+sudo: required
+services: 
+  - docker
+
+
+before_install:
+  - docker build -t ekrijel/docker-test -f Dockerfile.dev .
+
+script:
+  - docker run ekrijel/docker-test npm run test -- --coverage
